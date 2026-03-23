@@ -357,7 +357,8 @@
       }
     };
   #else
-    #if defined(MODEL_TS100) || defined(MODEL_Pinecil) || defined(MODEL_Pinecilv2)
+    // TODO: design SNP-specific button/tip glyphs; reuse Pinecil 96x16 assets for hello-world
+    #if defined(MODEL_TS100) || defined(MODEL_Pinecil) || defined(MODEL_Pinecilv2) || defined(MODEL_SolderNinjaPen)
     const uint8_t buttonA[] = {
         // width = 42
         // height = 16

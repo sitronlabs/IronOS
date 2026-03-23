@@ -1,0 +1,1262 @@
+Building for Solder Ninja Pen (RP2040)
+echo "#include <configuration.h>" | arm-none-eabi-gcc -dM -E -fno-lto -mcpu=cortex-m0plus -mthumb -mfloat-abi=soft -I./Core/Inc -I./Core/BSP -I./Core/BSP/SolderNinjaPen -I./Core/BSP/SolderNinjaPen -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/boards/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/boot_picobin_headers/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/boot_picoboot_headers/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/hardware_claim/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_base_headers/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_binary_info/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_sync/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_time/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_util/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/generated/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/boot_stage2/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_structs/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/pico_platform/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/boot_bootrom_headers/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Core/Include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_adc/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_base/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_boot_lock/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_exception/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_flash/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_gpio/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_i2c/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_irq/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_pll/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_resets/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_spi/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_sync/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_sync_spin_lock/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_ticks/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_timer/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_vreg/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_watchdog/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_xip_cache/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_xosc/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_atomic/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_bootrom/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_flash/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_platform_common/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_platform_compiler/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_platform_panic/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_platform_sections/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_runtime/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_runtime_init/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_time_adapter/include -I./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_unique_id/include -I./Core/Threads -I./Core/Threads/UI -I./Core/Threads/UI/drawing -I./Core/Threads/UI/drawing/mono_128x32 -I./Core/Threads/UI/drawing/mono_96x16 -I./Core/Threads/UI/logic -I./Core/Threads/UI/logic/utils -I./Core/Drivers -I./Core/Drivers/usb-pd -I./Core/Drivers/usb-pd/.github -I./Core/Drivers/usb-pd/.github/workflows -I./Core/Drivers/usb-pd/.vscode -I./Core/Drivers/usb-pd/include -I./Core/Drivers/usb-pd/src -I./Core/Drivers/usb-pd/tests -I./Core/brieflz -I./Middlewares -I./Middlewares/Third_Party -I./Middlewares/Third_Party/FreeRTOS -I./Middlewares/Third_Party/FreeRTOS/Source -I./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I./Middlewares/Third_Party/FreeRTOS/Source/include -Wtrigraphs -Wuninitialized -Wmissing-braces -Wfloat-equal -Wunreachable-code -Wswitch-default -Wreturn-type -Wundef -Wparentheses -Wnonnull -Winit-self -Wmissing-include-dirs -Wsequence-point -Wswitch -Wformat -Wsign-compare -Waddress -Waggregate-return -Wmissing-field-initializers -Wshadow -Wno-unused-parameter -Wno-undef -Wdouble-promotion -Wbad-function-cast -D USE_RTOS_SYSTICK -D PICO_NO_HARDWARE=0 -D PICO_ON_DEVICE=1 -D PICO_RP2040=1 -D PICO_BOARD=\"pico\" -D configENABLE_MPU=0 -D TICK_TYPE_WIDTH_16_BITS=0 -D TICK_TYPE_WIDTH_32_BITS=1 -D configTICK_TYPE_WIDTH_IN_BITS=1 -D USE_RTOS_SYSTICK -D MODEL_SolderNinjaPen -D VECT_TAB_OFFSET=0x100U -fshort-wchar  -Dgcc -MMD -std=gnu11 -g3 -Os -fno-jump-tables -foptimize-strlen -faggressive-loop-optimizations -fdevirtualize-at-ltrans -fmerge-all-constants -fshort-wchar -finline-small-functions -finline-functions -findirect-inlining -fdiagnostics-color -ffunction-sections -fdata-sections -fshort-enums -fsingle-precision-constant -fno-common -fno-math-errno -ffast-math -ffinite-math-only -fno-signed-zeros -fsingle-precision-constant -fno-lto -T./Core/BSP/SolderNinjaPen/rp2040.ld -c -MF "/build/ironos/source/Core/Gen/macros.tmp" - > "/build/ironos/source/Core/Gen/macros.txt"
+Building file: ./Core/BSP/SolderNinjaPen/bs2_default_padded_checksummed.S
+Building file: ./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S
+Building file: ./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_crt0/crt0.S
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/flash.c:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Core/Inc/FreeRTOSHooks.h:11[m[K,
+                 from [01m[K./Core/Src/FreeRTOSHooks.c:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/mpu_wrappers_v2_asm.c:35[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Core/Src/freertos.c:50[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/portasm.h:33[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/portasm.c:37[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/port.c:35[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/pico_platform/include/pico/platform.h:27[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_base_headers/include/pico.h:64[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:10[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Source/system_RP2040.c:31[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:29:9:[m[K [01;35m[Kwarning: [m[K'[01m[KXIP_CTRL_BASE[m[K' redefined
+   29 | #define [01;35m[KXIP_CTRL_BASE[m[K _u(0x14000000)
+      |         [01;35m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Source/system_RP2040.c:30[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2585:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2585 | #define [01;36m[KXIP_CTRL_BASE[m[K               0x14000000UL
+      |         [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:43:9:[m[K [01;35m[Kwarning: [m[K'[01m[KSYSINFO_BASE[m[K' redefined
+   43 | #define [01;35m[KSYSINFO_BASE[m[K _u(0x40000000)
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2582:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2582 | #define [01;36m[KSYSINFO_BASE[m[K                0x40000000UL
+      |         [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:44:9:[m[K [01;35m[Kwarning: [m[K'[01m[KSYSCFG_BASE[m[K' redefined
+   44 | #define [01;35m[KSYSCFG_BASE[m[K _u(0x40004000)
+      |         [01;35m[K^~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2586:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2586 | #define [01;36m[KSYSCFG_BASE[m[K                 0x40004000UL
+      |         [01;36m[K^~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:45:9:[m[K [01;35m[Kwarning: [m[K'[01m[KCLOCKS_BASE[m[K' redefined
+   45 | #define [01;35m[KCLOCKS_BASE[m[K _u(0x40008000)
+      |         [01;35m[K^~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2577:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2577 | #define [01;36m[KCLOCKS_BASE[m[K                 0x40008000UL
+      |         [01;36m[K^~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:46:9:[m[K [01;35m[Kwarning: [m[K'[01m[KRESETS_BASE[m[K' redefined
+   46 | #define [01;35m[KRESETS_BASE[m[K _u(0x4000c000)
+      |         [01;35m[K^~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2575:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2575 | #define [01;36m[KRESETS_BASE[m[K                 0x4000C000UL
+      |         [01;36m[K^~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:47:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPSM_BASE[m[K' redefined
+   47 | #define [01;35m[KPSM_BASE[m[K _u(0x40010000)
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2576:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2576 | #define [01;36m[KPSM_BASE[m[K                    0x40010000UL
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:48:9:[m[K [01;35m[Kwarning: [m[K'[01m[KIO_BANK0_BASE[m[K' redefined
+   48 | #define [01;35m[KIO_BANK0_BASE[m[K _u(0x40014000)
+      |         [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2581:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2581 | #define [01;36m[KIO_BANK0_BASE[m[K               0x40014000UL
+      |         [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:49:9:[m[K [01;35m[Kwarning: [m[K'[01m[KIO_QSPI_BASE[m[K' redefined
+   49 | #define [01;35m[KIO_QSPI_BASE[m[K _u(0x40018000)
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2580:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2580 | #define [01;36m[KIO_QSPI_BASE[m[K                0x40018000UL
+      |         [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:50:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPADS_BANK0_BASE[m[K' redefined
+   50 | #define [01;35m[KPADS_BANK0_BASE[m[K _u(0x4001c000)
+      |         [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2578:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2578 | #define [01;36m[KPADS_BANK0_BASE[m[K             0x4001C000UL
+      |         [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:51:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPADS_QSPI_BASE[m[K' redefined
+   51 | #define [01;35m[KPADS_QSPI_BASE[m[K _u(0x40020000)
+      |         [01;35m[K^~~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2579:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2579 | #define [01;36m[KPADS_QSPI_BASE[m[K              0x40020000UL
+      |         [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:52:9:[m[K [01;35m[Kwarning: [m[K'[01m[KXOSC_BASE[m[K' redefined
+   52 | #define [01;35m[KXOSC_BASE[m[K _u(0x40024000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2587:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2587 | #define [01;36m[KXOSC_BASE[m[K                   0x40024000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:53:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPLL_SYS_BASE[m[K' redefined
+   53 | #define [01;35m[KPLL_SYS_BASE[m[K _u(0x40028000)
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2588:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2588 | #define [01;36m[KPLL_SYS_BASE[m[K                0x40028000UL
+      |         [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:54:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPLL_USB_BASE[m[K' redefined
+   54 | #define [01;35m[KPLL_USB_BASE[m[K _u(0x4002c000)
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2589:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2589 | #define [01;36m[KPLL_USB_BASE[m[K                0x4002C000UL
+      |         [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:55:9:[m[K [01;35m[Kwarning: [m[K'[01m[KBUSCTRL_BASE[m[K' redefined
+   55 | #define [01;35m[KBUSCTRL_BASE[m[K _u(0x40030000)
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2604:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2604 | #define [01;36m[KBUSCTRL_BASE[m[K                0x40030000UL
+      |         [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:56:9:[m[K [01;35m[Kwarning: [m[K'[01m[KUART0_BASE[m[K' redefined
+   56 | #define [01;35m[KUART0_BASE[m[K _u(0x40034000)
+      |         [01;35m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2590:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2590 | #define [01;36m[KUART0_BASE[m[K                  0x40034000UL
+      |         [01;36m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:57:9:[m[K [01;35m[Kwarning: [m[K'[01m[KUART1_BASE[m[K' redefined
+   57 | #define [01;35m[KUART1_BASE[m[K _u(0x40038000)
+      |         [01;35m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2591:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2591 | #define [01;36m[KUART1_BASE[m[K                  0x40038000UL
+      |         [01;36m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:58:9:[m[K [01;35m[Kwarning: [m[K'[01m[KSPI0_BASE[m[K' redefined
+   58 | #define [01;35m[KSPI0_BASE[m[K _u(0x4003c000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2600:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2600 | #define [01;36m[KSPI0_BASE[m[K                   0x4003C000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:59:9:[m[K [01;35m[Kwarning: [m[K'[01m[KSPI1_BASE[m[K' redefined
+   59 | #define [01;35m[KSPI1_BASE[m[K _u(0x40040000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2601:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2601 | #define [01;36m[KSPI1_BASE[m[K                   0x40040000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:60:9:[m[K [01;35m[Kwarning: [m[K'[01m[KI2C0_BASE[m[K' redefined
+   60 | #define [01;35m[KI2C0_BASE[m[K _u(0x40044000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2598:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2598 | #define [01;36m[KI2C0_BASE[m[K                   0x40044000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:61:9:[m[K [01;35m[Kwarning: [m[K'[01m[KI2C1_BASE[m[K' redefined
+   61 | #define [01;35m[KI2C1_BASE[m[K _u(0x40048000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2599:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2599 | #define [01;36m[KI2C1_BASE[m[K                   0x40048000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:62:9:[m[K [01;35m[Kwarning: [m[K'[01m[KADC_BASE[m[K' redefined
+   62 | #define [01;35m[KADC_BASE[m[K _u(0x4004c000)
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2597:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2597 | #define [01;36m[KADC_BASE[m[K                    0x4004C000UL
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:63:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPWM_BASE[m[K' redefined
+   63 | #define [01;35m[KPWM_BASE[m[K _u(0x40050000)
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2596:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2596 | #define [01;36m[KPWM_BASE[m[K                    0x40050000UL
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:64:9:[m[K [01;35m[Kwarning: [m[K'[01m[KTIMER_BASE[m[K' redefined
+   64 | #define [01;35m[KTIMER_BASE[m[K _u(0x40054000)
+      |         [01;35m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2595:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2595 | #define [01;36m[KTIMER_BASE[m[K                  0x40054000UL
+      |         [01;36m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:65:9:[m[K [01;35m[Kwarning: [m[K'[01m[KWATCHDOG_BASE[m[K' redefined
+   65 | #define [01;35m[KWATCHDOG_BASE[m[K _u(0x40058000)
+      |         [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2593:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2593 | #define [01;36m[KWATCHDOG_BASE[m[K               0x40058000UL
+      |         [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:66:9:[m[K [01;35m[Kwarning: [m[K'[01m[KRTC_BASE[m[K' redefined
+   66 | #define [01;35m[KRTC_BASE[m[K _u(0x4005c000)
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2610:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2610 | #define [01;36m[KRTC_BASE[m[K                    0x4005C000UL
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:67:9:[m[K [01;35m[Kwarning: [m[K'[01m[KROSC_BASE[m[K' redefined
+   67 | #define [01;35m[KROSC_BASE[m[K _u(0x40060000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2592:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2592 | #define [01;36m[KROSC_BASE[m[K                   0x40060000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:68:9:[m[K [01;35m[Kwarning: [m[K'[01m[KVREG_AND_CHIP_RESET_BASE[m[K' redefined
+   68 | #define [01;35m[KVREG_AND_CHIP_RESET_BASE[m[K _u(0x40064000)
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2609:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2609 | #define [01;36m[KVREG_AND_CHIP_RESET_BASE[m[K    0x40064000UL
+      |         [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:69:9:[m[K [01;35m[Kwarning: [m[K'[01m[KTBMAN_BASE[m[K' redefined
+   69 | #define [01;35m[KTBMAN_BASE[m[K _u(0x4006c000)
+      |         [01;35m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2608:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2608 | #define [01;36m[KTBMAN_BASE[m[K                  0x4006C000UL
+      |         [01;36m[K^~~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:70:9:[m[K [01;35m[Kwarning: [m[K'[01m[KDMA_BASE[m[K' redefined
+   70 | #define [01;35m[KDMA_BASE[m[K _u(0x50000000)
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2594:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2594 | #define [01;36m[KDMA_BASE[m[K                    0x50000000UL
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:74:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPIO0_BASE[m[K' redefined
+   74 | #define [01;35m[KPIO0_BASE[m[K _u(0x50200000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2602:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2602 | #define [01;36m[KPIO0_BASE[m[K                   0x50200000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:75:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPIO1_BASE[m[K' redefined
+   75 | #define [01;35m[KPIO1_BASE[m[K _u(0x50300000)
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2603:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2603 | #define [01;36m[KPIO1_BASE[m[K                   0x50300000UL
+      |         [01;36m[K^~~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:77:9:[m[K [01;35m[Kwarning: [m[K'[01m[KSIO_BASE[m[K' redefined
+   77 | #define [01;35m[KSIO_BASE[m[K _u(0xd0000000)
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2605:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2605 | #define [01;36m[KSIO_BASE[m[K                    0xD0000000UL
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h:78:9:[m[K [01;35m[Kwarning: [m[K'[01m[KPPB_BASE[m[K' redefined
+   78 | #define [01;35m[KPPB_BASE[m[K _u(0xe0000000)
+      |         [01;35m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/cmsis/stub/CMSIS/Device/RP2040/Include/RP2040.h:2583:9:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+ 2583 | #define [01;36m[KPPB_BASE[m[K                    0xE0000000UL
+      |         [01;36m[K^~~~~~~~[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:[m[K In function '[01m[Kfrequency_count_mhz[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:378:13:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kuint32_t[m[K' {aka [m[K'[01m[Klong unsigned int[m[K'} to non-matching type '[01m[Kfloat[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  378 |     return ([01;35m[K([m[Kfloat) (frequency_count_khz(src))) / KHZ;
+      |             [01;35m[K^[m[K
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/clocks.c:10[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:[m[K In function '[01m[Kfrequency_count_mhz[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:378:13:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kuint32_t[m[K' {aka [m[K'[01m[Klong unsigned int[m[K'} to non-matching type '[01m[Kfloat[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  378 |     return ([01;35m[K([m[Kfloat) (frequency_count_khz(src))) / KHZ;
+      |             [01;35m[K^[m[K
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_i2c/i2c.c:9[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:[m[K In function '[01m[Kfrequency_count_mhz[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:378:13:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kuint32_t[m[K' {aka [m[K'[01m[Klong unsigned int[m[K'} to non-matching type '[01m[Kfloat[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  378 |     return ([01;35m[K([m[Kfloat) (frequency_count_khz(src))) / KHZ;
+      |             [01;35m[K^[m[K
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_pll/pll.c:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:[m[K In function '[01m[Kfrequency_count_mhz[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:378:13:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kuint32_t[m[K' {aka [m[K'[01m[Klong unsigned int[m[K'} to non-matching type '[01m[Kfloat[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  378 |     return ([01;35m[K([m[Kfloat) (frequency_count_khz(src))) / KHZ;
+      |             [01;35m[K^[m[K
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_spi/spi.c:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:[m[K In function '[01m[Kfrequency_count_mhz[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:378:13:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kuint32_t[m[K' {aka [m[K'[01m[Klong unsigned int[m[K'} to non-matching type '[01m[Kfloat[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  378 |     return ([01;35m[K([m[Kfloat) (frequency_count_khz(src))) / KHZ;
+      |             [01;35m[K^[m[K
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_base_headers/include/pico/assert.h:18[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_base_headers/include/pico/types.h:12[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/common/pico_base_headers/include/pico.h:26[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h:28[m[K,
+                 from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_irq/irq.c:7[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_irq/irq.c:[m[K In function '[01m[Kirq_add_shared_handler[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_irq/irq.c:404:20:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kvoid *[m[K' to non-matching type '[01m[Kunsigned int[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  404 |         assert(!((([01;35m[K([m[Kuintptr_t)remove_thumb_bit(vtable_handler)) - ((uintptr_t)irq_handler_chain_slots)) % sizeof(struct irq_handler_chain_slot)));
+      |                    [01;35m[K^[m[K
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_xosc/xosc.c:10[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:[m[K In function '[01m[Kfrequency_count_mhz[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:378:13:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kuint32_t[m[K' {aka [m[K'[01m[Klong unsigned int[m[K'} to non-matching type '[01m[Kfloat[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  378 |     return ([01;35m[K([m[Kfloat) (frequency_count_khz(src))) / KHZ;
+      |             [01;35m[K^[m[K
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c:[m[K In function '[01m[Krom_funcs_lookup[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c:28:20:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kvoid *[m[K' to non-matching type '[01m[Kunsigned int[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+   28 |         table[i] = [01;35m[K([m[Kuintptr_t) rom_func_lookup(table[i]);
+      |                    [01;35m[K^[m[K
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:101[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:99[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/pico_runtime_init/runtime_init_clocks.c:10[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:[m[K In function '[01m[Kfrequency_count_mhz[m[K':
+[01m[K./Core/BSP/SolderNinjaPen/Vendor/pico-sdk/src/rp2_common/hardware_clocks/include/hardware/clocks.h:378:13:[m[K [01;35m[Kwarning: [m[Kcast from function call of type '[01m[Kuint32_t[m[K' {aka [m[K'[01m[Klong unsigned int[m[K'} to non-matching type '[01m[Kfloat[m[K' [[01;35m[K-Wbad-function-cast[m[K]
+  378 |     return ([01;35m[K([m[Kfloat) (frequency_count_khz(src))) / KHZ;
+      |             [01;35m[K^[m[K
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/croutine.c:29[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/event_groups.c:38[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/list.c:37[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/GUIThread.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c:38[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+[01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:[m[K In function '[01m[KosMessageGet[m[K':
+[01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:956:9:[m[K [01;35m[Kwarning: [m[Kfunction returns an aggregate [[01;35m[K-Waggregate-return[m[K]
+  956 | osEvent [01;35m[KosMessageGet[m[K(osMessageQId queue_id, uint32_t millisec) {
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Threads/POWThread.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Threads/PIDThread.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+[01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:[m[K In function '[01m[KosMailGet[m[K':
+[01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:1133:9:[m[K [01;35m[Kwarning: [m[Kfunction returns an aggregate [[01;35m[K-Waggregate-return[m[K]
+ 1133 | osEvent [01;35m[KosMailGet[m[K(osMailQId queue_id, uint32_t millisec) {
+      |         [01;35m[K^~~~~~~~~[m[K
+[01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:[m[K In function '[01m[KosMessagePeek[m[K':
+[01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c:1375:9:[m[K [01;35m[Kwarning: [m[Kfunction returns an aggregate [[01;35m[K-Waggregate-return[m[K]
+ 1375 | osEvent [01;35m[KosMessagePeek[m[K(osMessageQId queue_id, uint32_t millisec) {
+      |         [01;35m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/queue.c:37[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/BMA223.hpp:11[m[K,
+                 from [01m[KCore/Threads/MOVThread.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/tasks.c:39[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_cjc_sampling.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/timers.c:37[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Inc/power.hpp:8[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_homescreen_detailed.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_debug_menu.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_homescreen_simplified.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_power_source_icon.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_profile_advanced.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Inc/power.hpp:8[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_soldering_basic_status.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_soldering_power_status.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_soldering_sleep_mode.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_temperature_change.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/logic/utils/OperatingModeUtilities.h:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_tip_temperature.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_usb_pd_debug.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/pre_render_assets.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/printSleepCountdown.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/draw_warning_undervoltage.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/print_voltage.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_128x32/show_warning.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_cjc_sampling.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_debug_menu.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_homescreen_detailed.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_homescreen_simplified.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_power_source_icon.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Inc/power.hpp:8[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_soldering_power_status.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Inc/power.hpp:8[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_soldering_basic_status.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_profile_advanced.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_soldering_sleep_mode.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_temperature_change.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/logic/utils/OperatingModeUtilities.h:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_tip_temperature.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_usb_pd_debug.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/draw_warning_undervoltage.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/pre_render_assets.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/printSleepCountdown.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[K./Core/Threads/UI/drawing/ui_drawing.hpp:3[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/print_voltage.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/drawing/mono_96x16/show_warning.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/CJC.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/DebugMenu.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/HomeScreen.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/OperatingModes.cpp:5[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/SettingsMenu.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/Sleep.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/ShowStartupWarnings.cpp:3[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/Soldering.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/SolderingProfile.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/TemperatureAdjust.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/USBPDDebug_FS2711.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/USBPDDebug_FUSB.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[KCore/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/USBPDDebug_HUSB238.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/checkUndervoltage.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/OperatingModeUtilities.h:3[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/getHallEffectSleepTimeout.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/OperatingModeUtilities.h:3[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/getSleepTimeout.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/OperatingModeUtilities.h:3[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/GUIDelay.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/OperatingModeUtilities.h:3[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/min.cpp:3[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/OperatingModeUtilities.h:3[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/shouldDeviceShutdown.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/shouldDeviceSleep.cpp:1[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/Threads/UI/logic/OperatingModes.h:5[m[K,
+                 from [01m[KCore/Threads/UI/logic/utils/SolderingCommon.cpp:6[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:101[m[K,
+                 from [01m[K./Core/Drivers/OLED.hpp:13[m[K,
+                 from [01m[K./Core/Inc/main.hpp:3[m[K,
+                 from [01m[KCore/Src/main.cpp:7[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Src/power.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Src/QC3.cpp:10[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Inc/settingsGUI.hpp:10[m[K,
+                 from [01m[KCore/Src/settingsGUI.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Src/Settings.cpp:12[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:101[m[K,
+                 from [01m[K./Core/Drivers/OLED.hpp:13[m[K,
+                 from [01m[KCore/Src/ScrollMessage.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/BootLogo.cpp:2[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/I2CBB1.hpp:12[m[K,
+                 from [01m[KCore/Drivers/accelerometers_common.h:8[m[K,
+                 from [01m[KCore/Drivers/BMA223.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[KCore/Drivers/Buttons.cpp:7[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[KCore/Drivers/I2CBB1.cpp:9[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/LIS2DH12.hpp:10[m[K,
+                 from [01m[KCore/Drivers/LIS2DH12.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/MMA8652FC.hpp:10[m[K,
+                 from [01m[KCore/Drivers/MMA8652FC.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/I2CBB1.hpp:12[m[K,
+                 from [01m[KCore/Drivers/accelerometers_common.h:8[m[K,
+                 from [01m[KCore/Drivers/MSA301.cpp:9[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/Buttons.hpp:7[m[K,
+                 from [01m[KCore/Drivers/OLED.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/I2CBB1.hpp:12[m[K,
+                 from [01m[KCore/Drivers/accelerometers_common.h:8[m[K,
+                 from [01m[KCore/Drivers/SC7A20.cpp:9[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/I2CBB1.hpp:12[m[K,
+                 from [01m[KCore/Drivers/accelerometers_common.h:8[m[K,
+                 from [01m[KCore/Drivers/Si7210.cpp:14[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Drivers/TipThermoModel.h:8[m[K,
+                 from [01m[KCore/Drivers/TipThermoModel.cpp:8[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[KCore/Drivers/USBPD.cpp:4[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/BSP.cpp:3[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/fusb_user.cpp:7[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/postRTOS.cpp:3[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:64[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/IRQ.h:11[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/IRQ.cpp:7[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/Power.cpp:3[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/preRTOS.cpp:3[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/QC_GPIO.cpp:7[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[K./Core/Drivers/TipThermoModel.h:8[m[K,
+                 from [01m[KCore/BSP/SolderNinjaPen/ThermoModel.cpp:19[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+Generating Objects/SolderNinjaPen/Core/Gen/settings_gen.SolderNinjaPen.o
+Generating translations for language EN
+INFO:root:Build version: v2.23B.370097AC
+INFO:root:Making ['EN'] from /build/ironos/Translations
+INFO:root:Preparing language data for EN
+In file included from [01m[K./Core/BSP/Defines.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:5[m[K,
+                 from [01m[K./Core/BSP/BSP_PD.h:10[m[K,
+                 from [01m[K./Core/BSP/BSP.h:2[m[K,
+                 from [01m[KCore/Gen/settings_gen.SolderNinjaPen.cpp:12[m[K:
+[01m[K./Core/BSP/SolderNinjaPen/FreeRTOSConfig.h:30:9:[m[K [01;35m[Kwarning: [m[K'[01m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K' redefined
+   30 | #define [01;35m[KconfigTICK_TYPE_WIDTH_IN_BITS[m[K           TICK_TYPE_WIDTH_32_BITS
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K<command-line>:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+INFO:root:Generating fonts for 67 symbols
+INFO:root:Generating fonts for 74 symbols
+INFO:root:Generating block for EN
+INFO:root:Collapsing menuOptionsMinVolCelldescription
+INFO:root:Collapsing menuOptionsMinVolCelldisplayText
+INFO:root:Collapsing menuOptionsProfilePhasesdescription
+INFO:root:Collapsing menuOptionsProfilePhasesdisplayText
+INFO:root:Collapsing menuOptionsProfilePreheatTempdescription
+INFO:root:Collapsing menuOptionsProfilePreheatTempdisplayText
+INFO:root:Collapsing menuOptionsProfilePreheatSpeeddescription
+INFO:root:Collapsing menuOptionsProfilePreheatSpeeddisplayText
+INFO:root:Collapsing menuOptionsProfilePhase1Tempdescription
+INFO:root:Collapsing menuOptionsProfilePhase1TempdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase1Durationdescription
+INFO:root:Collapsing menuOptionsProfilePhase1DurationdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase2Tempdescription
+INFO:root:Collapsing menuOptionsProfilePhase2TempdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase2Durationdescription
+INFO:root:Collapsing menuOptionsProfilePhase2DurationdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase3Tempdescription
+INFO:root:Collapsing menuOptionsProfilePhase3TempdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase3Durationdescription
+INFO:root:Collapsing menuOptionsProfilePhase3DurationdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase4Tempdescription
+INFO:root:Collapsing menuOptionsProfilePhase4TempdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase4Durationdescription
+INFO:root:Collapsing menuOptionsProfilePhase4DurationdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase5Tempdescription
+INFO:root:Collapsing menuOptionsProfilePhase5TempdisplayText
+INFO:root:Collapsing menuOptionsProfilePhase5Durationdescription
+INFO:root:Collapsing menuOptionsProfilePhase5DurationdisplayText
+INFO:root:Collapsing menuOptionsProfileCooldownSpeeddescription
+INFO:root:Collapsing menuOptionsProfileCooldownSpeeddisplayText
+INFO:root:Collapsing menuOptionsSleepTemperaturedescription
+INFO:root:Collapsing menuOptionsSleepTemperaturedisplayText
+INFO:root:Collapsing menuOptionsSleepTimeoutdescription
+INFO:root:Collapsing menuOptionsSleepTimeoutdisplayText
+INFO:root:Collapsing menuOptionsBluetoothLEdescription
+INFO:root:Collapsing menuOptionsBluetoothLEdisplayText
+INFO:root:Collapsing menuOptionsLanguageSwitchdescription
+INFO:root:Collapsing menuOptionsBuzzerEnableddescription
+INFO:root:Collapsing menuOptionsBuzzerEnableddisplayText
+INFO:root:Collapsing menuValuesTipTypeC245StockdisplayText
+INFO:root:Collapsing menuValuesTipTypeC245JBCdisplayText
+INFO:root:Collapsing menuGroupsPowerMenudescription
+INFO:root:Collapsing menuGroupsSolderingMenudescription
+INFO:root:Collapsing menuGroupsPowerSavingMenudescription
+INFO:root:Collapsing menuGroupsUIMenudescription
+INFO:root:Collapsing menuGroupsAdvancedMenudescription
+INFO:root:Collapsing messagesWarnUVLOWarningStringMessage
+INFO:root:Collapsing messagesWarnUndervoltageStringMessage
+INFO:root:Collapsing messagesWarnInputVoltageStringMessage
+INFO:root:Collapsing messagesWarnProfilePreheatStringMessage
+INFO:root:Collapsing messagesWarnProfileCooldownStringMessage
+INFO:root:Collapsing messagesWarnSleepingAdvancedStringMessage
+INFO:root:Collapsing messagesWarnSleepingTipAdvancedStringMessage
+INFO:root:Collapsing messagesWarnTooHotToStartProfileWarningMessage
+INFO:root:Collapsing charactersSettingStartSolderingCharMessage
+INFO:root:Collapsing charactersSettingStartSleepOffCharMessage
+INFO:root:Collapsing charactersSettingLockFullCharMessage
+INFO:root:Collapsing charactersSettingBLEReadOnlyCharMessage
+INFO:root:Writing pickled data to Objects/SolderNinjaPen/Core/Gen/translation.files/EN.pickle
+INFO:root:Done
+Linking Hexfile/SolderNinjaPen_EN.elf
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fstatr.o): in function `_fstat_r':
+fstatr.c:(.text._fstat_r+0xe): warning: _fstat is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-fstatr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-isattyr.o): in function `_isatty_r':
+isattyr.c:(.text._isatty_r+0xc): warning: _isatty is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-isattyr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-signalr.o): in function `_kill_r':
+signalr.c:(.text._kill_r+0xe): warning: _kill is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc_nano.a(libc_a-signalr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(_muldi3.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(_udivmoddi4.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(bpabi.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(eqsf2.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(gesf2.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(lesf2.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(mulsf3.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(subsf3.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(fixsfsi.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(floatsisf.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(floatunsisf.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/thumb/v6-m/nofp/libgcc.a(_divdi3.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(fstat.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(isatty.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(kill.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(sbrk.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+/usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/bin/ld: warning: /usr/lib/gcc/arm-none-eabi/15.1.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libnosys.a(_exit.o) uses 4-byte wchar_t yet the output is to use 2-byte wchar_t; use of wchar_t values across objects may fail
+Memory region         Used Size  Region Size  %age Used
+           BOOT2:         256 B        256 B    100.00%
+           FLASH:       43984 B      2044 KB      2.10%
+             RAM:       12356 B       256 KB      4.71%
+       SCRATCH_X:           0 B         4 KB      0.00%
+       SCRATCH_Y:           0 B         4 KB      0.00%
+arm-none-eabi-objcopy Hexfile/SolderNinjaPen_EN.elf -O ihex Hexfile/SolderNinjaPen_EN.hex
+arm-none-eabi-objcopy Hexfile/SolderNinjaPen_EN.elf -O binary Hexfile/SolderNinjaPen_EN.bin
+arm-none-eabi-size Hexfile/SolderNinjaPen_EN.elf
+   text	   data	    bss	    dec	    hex	filename
+  43336	    904	  11452	  55692	   d98c	Hexfile/SolderNinjaPen_EN.elf
+python3 dfuse-pack.py -b 0x08000000@0:Hexfile/SolderNinjaPen_EN.bin -D 0x28E9:0x0189 Hexfile/SolderNinjaPen_EN.dfu

@@ -8,9 +8,22 @@
 #ifdef I2C_SOFT_BUS_1
 #include "FreeRTOS.h"
 #include <I2CBB1.hpp>
+#ifdef MODEL_SolderNinjaPen
+#include "hardware/gpio.h"
+#endif
 SemaphoreHandle_t I2CBB1::I2CSemaphore = NULL;
 StaticSemaphore_t I2CBB1::xSemaphoreBuffer;
 void              I2CBB1::init() {
+#ifdef MODEL_SolderNinjaPen
+  // TODO: move RP2040 soft-I2C GPIO setup fully into the SNP BSP (Pins/Setup)
+  // and keep this driver HAL-free. For hello-world, init OD-like outputs here.
+  gpio_init(SDA_Pin);
+  gpio_set_dir(SDA_Pin, GPIO_OUT);
+  gpio_put(SDA_Pin, 1);
+  gpio_init(SCL_Pin);
+  gpio_set_dir(SCL_Pin, GPIO_OUT);
+  gpio_put(SCL_Pin, 1);
+#else
   // Set GPIO's to output open drain
   GPIO_InitTypeDef GPIO_InitStruct;
   __HAL_RCC_GPIOA_CLK_ENABLE();
@@ -25,6 +38,7 @@ void              I2CBB1::init() {
   GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_OD;
   GPIO_InitStruct.Pull  = GPIO_PULLUP;
   HAL_GPIO_Init(SCL_GPIO_Port, &GPIO_InitStruct);
+#endif
   SOFT_SDA1_HIGH();
   SOFT_SCL1_HIGH();
   // To ensure bus is unlocked; we toggle the Clock a bunch of times to make things error out

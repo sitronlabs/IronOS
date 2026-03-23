@@ -7,7 +7,8 @@ ALL_PINECIL_MODELS=Pinecil
 ALL_PINECIL_V2_MODELS=Pinecilv2
 ALL_MHP30_MODELS=MHP30
 ALL_SEQURE_MODELS=S60 S60P T55 S99 Si012ProMax
-ALL_MODELS=$(ALL_MINIWARE_MODELS) $(ALL_PINECIL_MODELS) $(ALL_MHP30_MODELS) $(ALL_PINECIL_V2_MODELS) $(ALL_SEQURE_MODELS)
+ALL_SOLDERNINJA_MODELS=SolderNinjaPen
+ALL_MODELS=$(ALL_MINIWARE_MODELS) $(ALL_PINECIL_MODELS) $(ALL_MHP30_MODELS) $(ALL_PINECIL_V2_MODELS) $(ALL_SEQURE_MODELS) $(ALL_SOLDERNINJA_MODELS)
 
 ifneq ($(model),$(filter $(model),$(ALL_MODELS)))
 $(error Invalid model '$(model)', valid options are: $(ALL_MODELS))
@@ -308,6 +309,41 @@ bootldr_size=0x0
 
 endif # ALL_PINECIL_V2_MODELS
 
+ifeq ($(model),$(ALL_SOLDERNINJA_MODELS))
+$(info Building for Solder Ninja Pen (RP2040))
+
+DEVICE_BSP_DIR=./Core/BSP/SolderNinjaPen
+LDSCRIPT=./Core/BSP/SolderNinjaPen/rp2040.ld
+
+CPUFLAGS=-mcpu=cortex-m0plus \
+         -mthumb             \
+         -mfloat-abi=soft
+
+DEV_GLOBAL_DEFS=-D USE_RTOS_SYSTICK \
+                -D PICO_NO_HARDWARE=0 \
+                -D PICO_ON_DEVICE=1 \
+                -D PICO_RP2040=1 \
+                -D PICO_BOARD=\"solder_ninja_pen\"
+# FreeRTOS policy lives in FreeRTOSConfig.h (included from portmacro.h).
+# Do not force configENABLE_MPU / tick width on the command line.
+DEV_LDFLAGS=-nostartfiles -Wl,--wrap=printf
+DEV_AFLAGS=
+DEV_CFLAGS=
+DEV_CXXFLAGS=
+
+COMPILER_PREFIX=arm-none-eabi
+
+flash_size=2048k
+bootldr_size=0x100
+
+# Pico SDK 2.2.0 is vendored under Vendor/pico-sdk/ and is not patched.
+# Make-side config_autogen.h and the board header live in pico_overlay/.
+# IMPORTANT: include paths are curated below (after the generic finds) — do NOT
+# add every nested Vendor directory as -I, or `#include "pico.h"` / `<time.h>`
+# collide with board/SDK private headers.
+
+endif # ALL_SOLDERNINJA_MODELS
+
 DEVICE_BSP_INCLUDE_DIRS:= ${shell find ${DEVICE_BSP_DIR} -type d -print}
 THREADS_INCLUDE_DIRS:= ${shell find ${THREADS_DIR} -type d -print}
 DRIVERS_INCLUDE_DIRS:= ${shell find ${DRIVERS_DIR} -type d -print}
@@ -343,6 +379,46 @@ SOURCE_CPP:=$(shell find ${THREADS_DIR}      -type f -name '*.cpp') \
 
 S_SRCS:=$(shell find $(DEVICE_BSP_DIR) -type f -name '*.S')
 
+# ---- Solder Ninja Pen: curated Pico SDK paths (must come after generic finds) ----
+ifeq ($(model),$(ALL_SOLDERNINJA_MODELS))
+SNP_SDK=$(DEVICE_BSP_DIR)/Vendor/pico-sdk
+# Only -I the SDK "include" roots (never their children), plus the BSP root.
+# Finding every nested dir breaks `#include "pico.h"` and system `<time.h>`.
+DEVICE_BSP_INCLUDE_DIRS:= \
+	$(DEVICE_BSP_DIR) \
+	$(shell find $(DEVICE_BSP_DIR) -path '*/Vendor' -prune -o -type d -print) \
+	$(shell find $(SNP_SDK) -type d \( -name include -o -name Include \) -print)
+
+# pico_overlay must precede Vendor include dirs so pico/config_autogen.h
+# resolves outside the SDK tree.
+INCLUDES=-I$(APP_INC_DIR)                              \
+         -I$(BSP_INC_DIR)                              \
+         -I$(DEVICE_BSP_DIR)/pico_overlay              \
+          ${patsubst %,-I%,${DEVICE_BSP_INCLUDE_DIRS}} \
+          ${patsubst %,-I%,${THREADS_INCLUDE_DIRS}}    \
+          ${patsubst %,-I%,${DRIVERS_INCLUDE_DIRS}}    \
+          ${patsubst %,-I%,${BRIEFLZ_INCLUDE_DIRS}}    \
+          ${patsubst %,-I%,${MIDDLEWARES_INCLUDE_DIRS}}
+
+ASM_INC=$(INCLUDES)
+
+# Compile BSP + Pico SDK C sources discovered under Vendor; skip host/boot_stage2.
+SOURCE:=$(shell find ${THREADS_DIR}            -type f -name '*.c') \
+        $(shell find ${SOURCE_CORE_DIR}        -type f -name '*.c') \
+        $(shell find ${DRIVERS_DIR}            -type f -name '*.c') \
+        $(shell find ${DEVICE_BSP_DIR}         -type f -name '*.c' \
+			-not -path '*/boot_stage2/*' \
+			-not -path '*/boards/*') \
+        $(shell find ${MIDDLEWARES_DIR}        -type f -name '*.c') \
+        $(BRIEFLZ_DIR)/depack.c
+
+# Assembly: padded boot2, crt0, IRQ chain. Never assemble include-only helpers
+# (asm_helper.S) or raw boot2 sources (those are pre-processed into bs2_*.S).
+S_SRCS:=$(DEVICE_BSP_DIR)/bs2_default_padded_checksummed.S \
+        $(SNP_SDK)/src/rp2_common/pico_crt0/crt0.S \
+        $(SNP_SDK)/src/rp2_common/hardware_irq/irq_handler_chain.S
+endif
+
 
 # Code optimisation ------------------------------------------------------------
 OPTIM=-Os                             \
@@ -367,6 +443,22 @@ OPTIM=-Os                             \
       -ffinite-math-only              \
       -fno-signed-zeros               \
       -fsingle-precision-constant
+
+# Solder Ninja Pen: this is the only LTO switch. OPTIM is appended after
+# DEV_CFLAGS, so a DEV_* -fno-lto would lose to -flto=auto.
+# Full LTO also breaks ARM_CM0 portasm short branches (JUMP11).
+ifeq ($(model),$(ALL_SOLDERNINJA_MODELS))
+OPTIM:=$(filter-out -flto=auto,$(OPTIM)) -fno-lto
+endif
+
+# Debug info. Other models stay at -g3. SNP defaults to -g;
+# `make model=SolderNinjaPen debug=1` restores -g3 for bring-up.
+DEBUG_FLAGS=-g3
+ifeq ($(model),$(ALL_SOLDERNINJA_MODELS))
+ifneq ($(debug),1)
+DEBUG_FLAGS=-g
+endif
+endif
 
 # Global defines ---------------------------------------------------------------
 GLOBAL_DEFINES+=$(DEV_GLOBAL_DEFS) -D USE_RTOS_SYSTICK -D MODEL_$(model) -D VECT_TAB_OFFSET=$(bootldr_size)U -fshort-wchar $(DENSE_UI_DEFINE)
@@ -398,6 +490,9 @@ COMPILER_PREFIX=arm-none-eabi
 endif
 ifeq ($(model),$(filter $(model),$(ALL_PINECIL_MODELS) $(ALL_PINECIL_V2_MODELS)))
 COMPILER_PREFIX=riscv-none-elf
+endif
+ifeq ($(model),$(filter $(model),$(ALL_SOLDERNINJA_MODELS)))
+COMPILER_PREFIX=arm-none-eabi
 endif
 
 # Programs ---------------------------------------------------------------------
@@ -475,7 +570,7 @@ CFLAGS=$(DEV_CFLAGS)     \
      -D${COMPILER}       \
      -MMD                \
      -std=gnu11          \
-     -g3                 \
+     $(DEBUG_FLAGS)      \
        $(OPTIM)          \
      -T$(LDSCRIPT)       \
      -c
